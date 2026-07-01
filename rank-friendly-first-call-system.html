@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rank Friendly — The First-Call System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { background: #2a2c31; }
+  :root{
+    --ink:#15171c;
+    --cream:#f5f3ee;
+    --amber:#e8590c;
+    --muted:#8a8576;
+  }
+  .sheet{
+    position: relative;
+    width: 794px;
+    height: 1123px;
+    overflow: hidden;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    padding: 54px 64px 38px;
+    display: flex;
+    flex-direction: column;
+  }
+  /* faint guideline */
+  .sheet::after{
+    content:"";
+    position:absolute; left:64px; right:64px; top:146px;
+    border-top:1px solid rgba(21,23,28,.12);
+  }
+
+  /* ---------- header ---------- */
+  .top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+  }
+  .brand{
+    font-family:'Saira Condensed',sans-serif;
+    font-weight:800; font-size:25px; letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .brand .dot{ color:var(--amber); }
+  .tag{
+    font-size:10.5px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--muted); margin-top:5px; font-weight:600;
+  }
+  .system{
+    text-align:right;
+    font-family:'Saira Condensed',sans-serif;
+    font-weight:700; font-size:14px; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .system .lbl{
+    display:block; font-family:'Inter'; font-weight:600;
+    font-size:9px; letter-spacing:.3em; color:var(--muted); margin-bottom:4px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    margin-top:30px;
+    display:flex; align-items:center; gap:28px;
+  }
+  .medal{ flex:0 0 auto; }
+  .hook{
+    font-family:'Saira Condensed',sans-serif;
+    font-weight:900;
+    font-size:92px;
+    line-height:.9;
+    letter-spacing:-.01em;
+    text-transform:uppercase;
+  }
+  .hook .amber{ color:var(--amber); }
+  /* clear plain-language explanation of what we do + for whom */
+  .promise{
+    margin-top:22px;
+    font-size:19px; line-height:1.4; font-weight:600; color:#2b2d33;
+    max-width:640px;
+  }
+  .promise b{ color:var(--ink); font-weight:700; }
+  .promise .amber{ color:var(--amber); }
+  .outcome{
+    margin-top:12px;
+    font-size:13.5px; font-weight:500; color:#54565d;
+    letter-spacing:.005em;
+  }
+  .outcome b{ color:var(--ink); font-weight:700; }
+
+  /* ---------- framework row ---------- */
+  .frame-head{
+    margin-top:30px;
+    font-family:'Saira Condensed',sans-serif; font-weight:700;
+    font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted);
+  }
+  .frame{
+    margin-top:14px;
+    display:flex; align-items:stretch; justify-content:space-between; gap:10px;
+  }
+  .step{ flex:1; text-align:left; }
+  .step .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:26px; height:26px; border-radius:50%;
+    background:var(--ink); color:var(--cream);
+    font-family:'Saira Condensed',sans-serif; font-weight:800; font-size:14px;
+  }
+  .step .stitle{
+    display:block; margin-top:9px;
+    font-family:'Saira Condensed',sans-serif; font-weight:700;
+    font-size:15px; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .step .sdesc{
+    display:block; margin-top:5px;
+    font-size:10.5px; line-height:1.4; color:#54565d; font-weight:500;
+  }
+
+  /* ---------- proof ---------- */
+  .proof{
+    margin-top:30px;
+    display:flex; gap:18px;
+  }
+  .pcard{
+    flex:1;
+    border:1px solid rgba(21,23,28,.16);
+    border-radius:4px;
+    padding:16px 20px;
+    display:flex; align-items:baseline; gap:12px;
+  }
+  .pnum{
+    font-family:'Saira Condensed',sans-serif; font-weight:800;
+    font-size:30px; letter-spacing:.01em;
+  }
+  .pnum .arw{ color:var(--amber); margin:0 5px; }
+  .plbl{
+    font-size:9px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin-left:auto; text-align:right;
+    line-height:1.4;
+  }
+
+  /* ---------- tiers ---------- */
+  .tiers{
+    margin-top:20px;
+    display:flex; gap:18px;
+  }
+  .tier{
+    flex:1; border-radius:5px; padding:18px 20px 17px;
+    position:relative;
+  }
+  .tier.core{ background:#ece9e1; border:1px solid rgba(21,23,28,.12); }
+  .tier.prem{ background:var(--ink); color:var(--cream); }
+  .tname{
+    font-family:'Saira Condensed',sans-serif; font-weight:700;
+    font-size:15px; letter-spacing:.16em; text-transform:uppercase;
+  }
+  .tprice{
+    font-family:'Saira Condensed',sans-serif; font-weight:900;
+    font-size:34px; line-height:1; margin-top:4px;
+  }
+  .tprice small{ font-size:14px; font-weight:600; color:var(--muted); letter-spacing:.04em; }
+  .tier.prem .tprice small{ color:#9a958a; }
+  .tdesc{
+    font-size:11px; line-height:1.45; margin-top:9px; color:#54565d; font-weight:500;
+  }
+  .tier.prem .tdesc{ color:#c9c5bb; }
+  .rec{
+    position:absolute; top:-9px; right:16px;
+    background:var(--amber); color:#fff;
+    font-size:8.5px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    padding:4px 9px; border-radius:20px;
+  }
+
+  /* ---------- footer ---------- */
+  .scar{
+    margin-top:16px;
+    text-align:center;
+    font-size:9.5px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--muted); font-weight:600;
+  }
+  .cta{
+    margin-top:14px;
+    display:flex; flex-direction:column; align-items:center;
+  }
+  .btn{
+    background:var(--amber); color:#fff;
+    font-family:'Saira Condensed',sans-serif; font-weight:800;
+    font-size:21px; letter-spacing:.05em; text-transform:uppercase;
+    padding:14px 40px; border-radius:4px;
+  }
+  .cline{
+    margin-top:12px;
+    font-size:10.5px; letter-spacing:.04em; color:#54565d; font-weight:500;
+  }
+  .cline b{ color:var(--ink); font-weight:700; }
+</style>
+</head>
+<body>
+  <div class="sheet">
+
+    <!-- header -->
+    <div class="top">
+      <div>
+        <div class="brand">RANK FRIENDLY<span class="dot">.</span></div>
+        <div class="tag">Google Rankings for Restroom-Trailer Rental Companies</div>
+      </div>
+      <div class="system">
+        <span class="lbl">The System</span>
+        The First-Call System
+      </div>
+    </div>
+
+    <!-- hero -->
+    <div class="hero">
+      <div class="medal">
+        <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- ribbon -->
+          <path d="M58 96 L42 150 L62 138 L75 150 L75 96 Z" fill="#15171c"/>
+          <path d="M92 96 L108 150 L88 138 L75 150 L75 96 Z" fill="#e8590c"/>
+          <!-- medal disc -->
+          <circle cx="75" cy="56" r="54" fill="#15171c"/>
+          <circle cx="75" cy="56" r="44" fill="none" stroke="#e8590c" stroke-width="2.5"/>
+          <!-- ticks -->
+          <g stroke="#e8590c" stroke-width="2">
+            <line x1="75" y1="14" x2="75" y2="22"/>
+            <line x1="75" y1="90" x2="75" y2="98"/>
+            <line x1="33" y1="56" x2="41" y2="56"/>
+            <line x1="109" y1="56" x2="117" y2="56"/>
+          </g>
+          <text x="75" y="80" text-anchor="middle" font-family="Saira Condensed, sans-serif" font-weight="900" font-size="62" fill="#f5f3ee">1</text>
+          <text x="44" y="38" text-anchor="middle" font-family="Saira Condensed, sans-serif" font-weight="700" font-size="22" fill="#e8590c">#</text>
+        </svg>
+      </div>
+      <div>
+        <div class="hook">MORE<br>PHONE<br><span class="amber">CALLS.</span></div>
+      </div>
+    </div>
+
+    <!-- plain-language offer: what we do + who it's for -->
+    <div class="promise">
+      We help <b>restroom &amp; shower trailer rental companies</b> rank <span class="amber">#1 on Google</span> &mdash; so more local customers find you first and <b>call you instead of a competitor</b>.
+    </div>
+    <div class="outcome">Typical result: a phone that rings with ready-to-book jobs within <b>90 days</b>.</div>
+
+    <!-- framework -->
+    <div class="frame-head">How the First-Call System works</div>
+    <div class="frame">
+      <div class="step">
+        <span class="num">1</span>
+        <span class="stitle">Map</span>
+        <span class="sdesc">We find every search your customers type when they need a trailer &mdash; by city and by job type.</span>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <span class="stitle">Get Found</span>
+        <span class="sdesc">We build your site &amp; Google profile so you rank at the top of Maps and search.</span>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <span class="stitle">Build Trust</span>
+        <span class="sdesc">Reviews, photos, and clear pricing that make buyers pick you over the other listings.</span>
+      </div>
+      <div class="step">
+        <span class="num">4</span>
+        <span class="stitle">Get Calls</span>
+        <span class="sdesc">Your phone rings and your inbox fills with real quote requests, not tire-kickers.</span>
+      </div>
+      <div class="step">
+        <span class="num">5</span>
+        <span class="stitle">Grow</span>
+        <span class="sdesc">We track every lead and expand into new cities so you book more each month.</span>
+      </div>
+    </div>
+
+    <!-- proof -->
+    <div class="proof">
+      <div class="pcard">
+        <div class="pnum">12<span class="arw">&rarr;</span>129</div>
+        <div class="plbl">Leads<br>per month</div>
+      </div>
+      <div class="pcard">
+        <div class="pnum">418<span class="arw">&rarr;</span>12,600</div>
+        <div class="plbl">Monthly<br>website visitors</div>
+      </div>
+    </div>
+
+    <!-- tiers -->
+    <div class="tiers">
+      <div class="tier core">
+        <div class="tname">Core</div>
+        <div class="tprice">$10,000<small>/mo</small></div>
+        <div class="tdesc">Rank #1 in your home market: Google Business Profile, local SEO, and a site built to turn searches into calls.</div>
+      </div>
+      <div class="tier prem">
+        <div class="rec">Recommended</div>
+        <div class="tname">Premium</div>
+        <div class="tprice">$20,000<small>/mo</small></div>
+        <div class="tdesc">Everything in Core, plus Google Ads, multi-city expansion, and lead tracking to dominate your whole region.</div>
+      </div>
+    </div>
+
+    <!-- scarcity + cta -->
+    <div class="scar">We only work with one restroom-trailer company per market &middot; a few openings each quarter</div>
+    <div class="cta">
+      <div class="btn">Book a 15-Minute Fit Call</div>
+      <div class="cline">rankfriendly.com/book &middot; Call/text <b>(844) 668-7265</b></div>
+    </div>
+
+  </div>
+</body>
+</html>
