@@ -62,14 +62,14 @@
 
   /* ---------- hero ---------- */
   .hero{
-    margin-top:30px;
+    margin-top:24px;
     display:flex; align-items:center; gap:28px;
   }
   .medal{ flex:0 0 auto; }
   .hook{
     font-family:'Saira Condensed',sans-serif;
     font-weight:900;
-    font-size:92px;
+    font-size:84px;
     line-height:.9;
     letter-spacing:-.01em;
     text-transform:uppercase;
@@ -77,8 +77,8 @@
   .hook .amber{ color:var(--amber); }
   /* clear plain-language explanation of what we do + for whom */
   .promise{
-    margin-top:22px;
-    font-size:19px; line-height:1.4; font-weight:600; color:#2b2d33;
+    margin-top:18px;
+    font-size:17.5px; line-height:1.4; font-weight:600; color:#2b2d33;
     max-width:640px;
   }
   .promise b{ color:var(--ink); font-weight:700; }
@@ -92,7 +92,7 @@
 
   /* ---------- framework row ---------- */
   .frame-head{
-    margin-top:30px;
+    margin-top:24px;
     font-family:'Saira Condensed',sans-serif; font-weight:700;
     font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted);
   }
@@ -118,8 +118,13 @@
   }
 
   /* ---------- proof ---------- */
+  .proof-head{
+    margin-top:22px;
+    font-family:'Saira Condensed',sans-serif; font-weight:700;
+    font-size:12px; letter-spacing:.26em; text-transform:uppercase; color:var(--muted);
+  }
   .proof{
-    margin-top:30px;
+    margin-top:10px;
     display:flex; gap:18px;
   }
   .pcard{
@@ -165,6 +170,23 @@
     font-size:11px; line-height:1.45; margin-top:9px; color:#54565d; font-weight:500;
   }
   .tier.prem .tdesc{ color:#c9c5bb; }
+  .tsub{
+    font-size:10px; letter-spacing:.14em; text-transform:uppercase;
+    color:#7a7568; font-weight:700; margin-top:6px;
+  }
+  .tier.prem .tsub{ color:#9a958a; }
+  .tlist{
+    list-style:none; margin-top:9px;
+  }
+  .tlist li{
+    font-size:10.5px; line-height:1.45; color:#54565d; font-weight:500;
+    padding-left:16px; position:relative; margin-top:4px;
+  }
+  .tier.prem .tlist li{ color:#c9c5bb; }
+  .tlist li::before{
+    content:"\2713"; position:absolute; left:0; top:0;
+    color:var(--amber); font-weight:700;
+  }
   .rec{
     position:absolute; top:-9px; right:16px;
     background:var(--amber); color:#fff;
@@ -176,7 +198,7 @@
   .scar{
     margin-top:16px;
     text-align:center;
-    font-size:9.5px; letter-spacing:.28em; text-transform:uppercase;
+    font-size:9.5px; letter-spacing:.18em; text-transform:uppercase;
     color:var(--muted); font-weight:600;
   }
   .cta{
@@ -274,6 +296,7 @@
     </div>
 
     <!-- proof -->
+    <div class="proof-head">Real client results</div>
     <div class="proof">
       <div class="pcard">
         <div class="pnum">12<span class="arw">&rarr;</span>129</div>
@@ -290,20 +313,33 @@
       <div class="tier core">
         <div class="tname">Core</div>
         <div class="tprice">$10,000<small>/mo</small></div>
-        <div class="tdesc">Rank #1 in your home market: Google Business Profile, local SEO, and a site built to turn searches into calls.</div>
+        <div class="tsub">Own your home market</div>
+        <ul class="tlist">
+          <li>Website built to turn searches into calls</li>
+          <li>Google Business Profile management</li>
+          <li>Local SEO &amp; city pages</li>
+          <li>Monthly ranking &amp; lead report</li>
+        </ul>
       </div>
       <div class="tier prem">
         <div class="rec">Recommended</div>
         <div class="tname">Premium</div>
         <div class="tprice">$20,000<small>/mo</small></div>
-        <div class="tdesc">Everything in Core, plus Google Ads, multi-city expansion, and lead tracking to dominate your whole region.</div>
+        <div class="tsub">Dominate your whole region</div>
+        <ul class="tlist">
+          <li>Everything in Core</li>
+          <li>Google Ads management</li>
+          <li>Multi-city expansion</li>
+          <li>Call &amp; lead tracking dashboard</li>
+        </ul>
       </div>
     </div>
 
     <!-- scarcity + cta -->
-    <div class="scar">We only work with one restroom-trailer company per market &middot; a few openings each quarter</div>
+    <div class="scar">We only do restroom trailers &middot; one company per market &middot; a few openings each quarter</div>
     <div class="cta">
       <div class="btn">Book a 15-Minute Fit Call</div>
+      <div class="cline">See where you rank today and which calls you're missing. If we're not a fit, we'll tell you.</div>
       <div class="cline">rankfriendly.com/book &middot; Call/text <b>(844) 668-7265</b></div>
     </div>
 
